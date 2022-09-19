@@ -10,9 +10,11 @@ jobs:
       # Клонируем репозиторий
       - uses: actions/checkout@v2
       # Устанавливаем Node.js
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: 16  # дополнительно указываем, что версия Nodejs должна быть не ниже 16-й
+          # node-version: 16  # дополнительно указываем, что версия Nodejs должна быть не ниже 16-й
+          node-version: '16.x'
+          cache: 'npm' # ускоряет повторные сборки
       # Ставим зависимости
       - run: make install
       # Запускаем билд проекта
@@ -24,4 +26,8 @@ jobs:
       # имя выводится на Github при просмотре сборки
       - name: run tests
         run: make test # name и run относятся к одной задаче, поэтому дефис ставится только перед name
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       
