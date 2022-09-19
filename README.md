@@ -1,5 +1,7 @@
 ![example workflow](https://github.com/MikRyam/hexlet-ci-app/actions/workflows/hello-world2.yml/badge.svg)
 
+![example event parameter](https://github.com/MikRyam/hexlet-ci-app/actions/workflows/hello-world2.yml/badge.svg?event=push)
+
 # Example app for CI Hexlet course
 
 Starting boilerplate of [Strapi](https://strapi.io/) application
