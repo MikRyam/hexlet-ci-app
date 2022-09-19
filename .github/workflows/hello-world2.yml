@@ -12,7 +12,7 @@ jobs:
       # Устанавливаем Node.js
       - uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 16  # дополнительно указываем, что версия Nodejs должна быть не ниже 16-й
       # Ставим зависимости
       - run: make install
       # Запускаем билд проекта
